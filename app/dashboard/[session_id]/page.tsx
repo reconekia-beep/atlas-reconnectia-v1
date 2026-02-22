@@ -4,9 +4,13 @@ import { notFound } from "next/navigation"
 export default async function DashboardPage({
   params,
 }: {
-  params: Promise<{ session_id: string }>
+  params: { session_id: string }
 }) {
-  const { session_id } = await params
+  const { session_id } = params
+
+  if (!session_id) {
+    return notFound()
+  }
 
   const { data, error } = await supabase
     .from("atlas_sessions")
@@ -25,3 +29,4 @@ export default async function DashboardPage({
     </div>
   )
 }
+
