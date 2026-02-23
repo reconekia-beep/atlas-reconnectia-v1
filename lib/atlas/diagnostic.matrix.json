@@ -1,0 +1,29 @@
+{
+  "dimensions": [
+    {
+      "id": "infraestructura_digital_actual",
+      "label": "Infraestructura Digital Actual",
+      "weight": 1
+    },
+    {
+      "id": "apalancamiento_de_conocimiento",
+      "label": "Apalancamiento de Conocimiento",
+      "weight": 1
+    },
+    {
+      "id": "automatizacion_operativa",
+      "label": "Automatización Operativa",
+      "weight": 1
+    },
+    {
+      "id": "escalabilidad_estrategica",
+      "label": "Escalabilidad Estratégica",
+      "weight": 1
+    }
+  ],
+  "scoring": {
+    "min": 1,
+    "max": 5,
+    "method": "average"
+  }
+}

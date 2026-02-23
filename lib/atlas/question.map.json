@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "id": "infra_1",
+      "dimension": "infraestructura_digital_actual",
+      "text": "¿Tu infraestructura digital actual permite operar sin fricciones significativas?",
+      "required": true
+    },
+    {
+      "id": "infra_2",
+      "dimension": "infraestructura_digital_actual",
+      "text": "¿Tus herramientas tecnológicas están integradas entre sí?",
+      "required": true
+    },
+    {
+      "id": "conocimiento_1",
+      "dimension": "apalancamiento_de_conocimiento",
+      "text": "¿Tu empresa documenta procesos clave de manera estructurada?",
+      "required": true
+    },
+    {
+      "id": "conocimiento_2",
+      "dimension": "apalancamiento_de_conocimiento",
+      "text": "¿El conocimiento interno es accesible y reutilizable?",
+      "required": true
+    },
+    {
+      "id": "auto_1",
+      "dimension": "automatizacion_operativa",
+      "text": "¿Existen procesos críticos automatizados en tu operación?",
+      "required": true
+    },
+    {
+      "id": "auto_2",
+      "dimension": "automatizacion_operativa",
+      "text": "¿Las tareas repetitivas han sido reducidas mediante sistemas?",
+      "required": true
+    },
+    {
+      "id": "escala_1",
+      "dimension": "escalabilidad_estrategica",
+      "text": "¿Tu modelo actual puede crecer sin aumentar proporcionalmente los costos?",
+      "required": true
+    },
+    {
+      "id": "escala_2",
+      "dimension": "escalabilidad_estrategica",
+      "text": "¿Tu estructura soporta expansión sin perder control estratégico?",
+      "required": true
+    }
+  ]
+}
