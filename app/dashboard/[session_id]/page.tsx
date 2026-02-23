@@ -25,7 +25,14 @@ export default async function DashboardPage({
   }
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] flex flex-col items-center pt-16 px-4 pb-24">
+    <main className="min-h-screen bg-[#0a0a0a] flex flex-col items-center pt-16 px-4 pb-24 animate-in fade-in duration-1000 fill-mode-forwards opacity-0 [animation:fadeIn_1s_ease-in-out_forwards]">
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}} />
       <div className="w-full max-w-5xl flex flex-col gap-8">
         {/* Header */}
         <div className="text-center mb-4">
