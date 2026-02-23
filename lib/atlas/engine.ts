@@ -3,8 +3,8 @@
 // ===============================
 
 export type Dimension =
-  | "infraestructura_digital"
-  | "apalancamiento_conocimiento"
+  | "infraestructura_digital_actual"
+  | "apalancamiento_de_conocimiento"
   | "automatizacion_operativa"
   | "escalabilidad_estrategica";
 

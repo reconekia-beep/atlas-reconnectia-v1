@@ -1,8 +1,8 @@
 import { runAtlasEngine } from "./engine";
 
 const mockResponses = {
-  infraestructura_digital: [3, 4, 2, 3],
-  apalancamiento_conocimiento: [4, 4, 3, 4],
+  infraestructura_digital_actual: [3, 4, 2, 3],
+  apalancamiento_de_conocimiento: [4, 4, 3, 4],
   automatizacion_operativa: [2, 3, 2, 2],
   escalabilidad_estrategica: [3, 3, 3, 4],
 };
