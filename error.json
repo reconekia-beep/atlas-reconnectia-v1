@@ -1,0 +1,6 @@
+{
+  "code": "22000",
+  "details": null,
+  "hint": null,
+  "message": "expected 768 dimensions, not 3072"
+}

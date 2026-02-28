@@ -1,0 +1,1 @@
+﻿.next/dev/types/validator.ts(89,39): error TS2307: Cannot find module '../../../app/api/atlas/route.js' or its corresponding type declarations.
