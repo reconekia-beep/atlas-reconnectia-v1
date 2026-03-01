@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* --- ELITE STRATEGY TERMINAL DESIGN SYSTEM --- */
+:root {
+    --bg-base: #202124;
+    --primary-cta: #ff751f;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-base);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-base);
+    color: #e5e5e5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+
+    /* Atmospheric Radial Gradients (3 fixed corners) */
+    .elite-atmospheric-bg {
+        @apply fixed inset-0 pointer-events-none z-0;
+        background:
+            radial-gradient(circle at 0% 0%, rgba(255, 117, 31, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 100% 0%, rgba(255, 117, 31, 0.03) 0%, transparent 30%),
+            radial-gradient(circle at 100% 100%, rgba(255, 117, 31, 0.05) 0%, transparent 40%);
+    }
+
+    /* Glassmorphism Classes (Profound) */
+    .glass-nav {
+        @apply bg-[#202124]/70 backdrop-blur-2xl border-b border-white/[0.02];
+    }
+
+    .glass-card {
+        @apply bg-[#202124]/40 backdrop-blur-xl border border-white/[0.05] rounded-2xl transition-all duration-500 hover:bg-[#202124]/60 hover:border-[#ff751f]/20;
+    }
+
+    .glass-panel {
+        @apply bg-[#202124]/60 backdrop-blur-3xl border border-white/[0.03] rounded-2xl;
+    }
+
+    /* Elite Buttons */
+    .btn-premium {
+        @apply relative overflow-hidden bg-[#ff751f] text-white font-bold rounded-lg transition-all duration-500 hover:bg-[#ff8a3d] hover:-translate-y-1 active:translate-y-0;
+        box-shadow: 0 0 15px rgba(255, 117, 31, 0.2);
+    }
+
+    .btn-premium:hover {
+        box-shadow: 0 0 30px rgba(255, 117, 31, 0.5);
+    }
+
+    .btn-premium:active {
+        box-shadow: 0 0 10px rgba(255, 117, 31, 0.3);
+    }
+
+    .btn-ghost {
+        @apply relative overflow-hidden bg-transparent border border-white/10 text-white font-bold rounded-lg transition-all duration-300 hover:bg-white/5 hover:-translate-y-1 active:translate-y-0 active:border-[#ff751f]/30;
+        border-color: rgba(255, 117, 31, 0.1);
+    }
+
+    .btn-ghost:hover {
+        border-color: rgba(255, 117, 31, 0.5);
+    }
+
+    /* Typography */
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-[#a3a3a3] to-[#555555];
+    }
+
+    .text-gradient-primary {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#ff751f] to-[#ffaa77];
+    }
+
+    /* Iconography Glow */
+    .icon-glow {
+        filter: drop-shadow(0 0 8px rgba(255, 117, 31, 0.5));
+    }
+
+    /* Micro Animations */
+    .animate-float {
+        animation: floatSmooth 6s ease-in-out infinite;
+    }
+
+    .animate-soft-pulse {
+        animation: softPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-fade-in {
+        animation: fadeInSlide 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .animate-delay-100 {
+        animation-delay: 100ms;
+    }
+
+    .animate-delay-200 {
+        animation-delay: 200ms;
+    }
+
+    .animate-delay-300 {
+        animation-delay: 300ms;
+    }
+
+    .animate-delay-400 {
+        animation-delay: 400ms;
+    }
+
+    .animate-delay-500 {
+        animation-delay: 500ms;
+    }
+
+    @keyframes floatSmooth {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-12px);
+        }
+    }
+
+    @keyframes softPulse {
+
+        0%,
+        100% {
+            opacity: 1;
+            box-shadow: 0 0 15px rgba(255, 117, 31, 0.2);
+        }
+
+        50% {
+            opacity: 0.9;
+            box-shadow: 0 0 30px rgba(255, 117, 31, 0.6);
+        }
+    }
+
+    @keyframes fadeInSlide {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }

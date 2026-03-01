@@ -142,10 +142,13 @@ export async function POST(req: Request) {
         const embedding = await getEmbedding(lastUserMessage.content, geminiKey)
         if (!embedding) return null
 
+        // 2. Telemetry: log the first 5 values of the mapped query vector
+        console.log(`\n[RAG Telemetry] Vector generated for "${lastUserMessage.content}": [${embedding.slice(0, 5).join(', ')}...]`);
+
         const { data, error } = await supabase.rpc('match_documents', {
           query_embedding: embedding,
-          match_threshold: 0.70, // Appropriate similarity filter
-          match_count: 5
+          match_threshold: 0.45, // Lowered threshold for test sensitivity
+          match_count: 5         // 4. Aumento de Contexto
         })
 
         if (error) {
@@ -154,7 +157,17 @@ export async function POST(req: Request) {
         }
 
         if (data && data.length > 0) {
+          // 1. Log de Similitud (top 3)
+          console.log(`\n--- RAG Search Results for: "${lastUserMessage.content}" ---`)
+          data.slice(0, 3).forEach((doc: any, i: number) => { // Only show top 3 similarity scores in terminal
+            console.log(`Result ${i + 1}: Score = ${doc.similarity?.toFixed(4) || 'N/A'}`)
+          })
+          console.log('---------------------------------------------------\n')
+
           return data.map((doc: any) => doc.content).join('\n\n---\n\n')
+        } else {
+          // 4. Prompt de Fallback
+          console.warn(`\n[RAG] Zero results found for query: "${lastUserMessage.content}" using threshold 0.45`)
         }
         return null
       }

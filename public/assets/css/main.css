@@ -1,0 +1,50 @@
+:root {
+    --bg-base: #202124;
+    --primary-cta: #ff751f;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-base);
+}
+.glass-nav {
+    background: rgba(32, 33, 36, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.bento-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s ease;
+}
+.bento-card:hover {
+    border-color: rgba(255, 117, 31, 0.3);
+}
+.text-soft-gray {
+    color: #9aa0a6;
+}
+.hero-gradient {
+    background: radial-gradient(circle at center, rgba(14, 165, 233, 0.08) 0%, rgba(32, 33, 36, 1) 70%);
+}
+.abstract-network {
+    background-image: radial-gradient(circle at 2px 2px, rgba(14, 165, 233, 0.15) 1px, transparent 0);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+}
+.floating-cta-shadow {
+    box-shadow: 0 20px 40px -10px rgba(255, 117, 31, 0.4);
+}
+.premium-gradient {
+    background: radial-gradient(circle at center, #2d1e14 0%, #202124 100%);
+}
+.cta-glow:hover {
+    box-shadow: 0 0 25px rgba(255, 117, 31, 0.4);
+    transform: translateY(-1px);
+}
+.glass-panel {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 117, 31, 0.1);
+}

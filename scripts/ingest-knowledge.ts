@@ -28,9 +28,14 @@ const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY.trim() });
 
 interface KnowledgeItem {
-    title: string;
-    keywords: string[];
-    content: string;
+    title?: string;
+    titulo?: string;
+    keywords?: string[];
+    content?: string;
+    contenido?: string;
+    text?: string;
+    body?: string;
+    [key: string]: any; // fallback for other data
 }
 
 
@@ -68,6 +73,19 @@ async function getEmbedding(text: string): Promise<number[] | null> {
 async function runIngestion() {
     console.log("Starting Knowledge Ingestion...");
 
+    // 0. Limpiar la tabla antes de cargar
+    console.log("Limpiando la tabla knowledge_documents en Supabase...");
+    const { error: deleteError } = await supabaseAdmin
+        .from("knowledge_documents")
+        .delete()
+        .not('id', 'is', null); // Hack to delete all the rows when relying on filters
+
+    if (deleteError) {
+        console.error("Error al limpiar la tabla:", deleteError.message);
+        process.exit(1);
+    }
+    console.log("Tabla limpiada exitosamente.");
+
     // 1. Read JSON file
     const kbFilePath = path.resolve(process.cwd(), "reconnectia_kb.json");
     if (!fs.existsSync(kbFilePath)) {
@@ -83,13 +101,22 @@ async function runIngestion() {
 
     for (let i = 0; i < knowledgeItems.length; i++) {
         const item = knowledgeItems[i];
-        console.log(`Processing item ${i + 1}/${knowledgeItems.length}: ${item.title}...`);
+
+        const itemTitle = item.title || item.titulo || `Item Sin Titulo ${i + 1}`;
+        const itemContent = item.content || item.contenido || item.text || item.body;
+
+        console.log(`\nProcesando bloque: [${itemTitle}]`);
+
+        if (!itemContent) {
+            console.error(`Error: Ningun contenido encontrado para [${itemTitle}]. Validar las llaves de este objeto. Saltando...`);
+            continue;
+        }
 
         // 2. Generate Embeddings using item.content
-        const embedding = await getEmbedding(item.content);
+        const embedding = await getEmbedding(itemContent);
 
         if (!embedding) {
-            console.error(`Failed to generate embedding for item ${i + 1} (${item.title}). Skipping.`);
+            console.error(`Failed to generate embedding for item ${i + 1} (${itemTitle}). Skipping.`);
             continue;
         }
 
@@ -97,11 +124,11 @@ async function runIngestion() {
         const { error } = await supabaseAdmin
             .from("knowledge_documents")
             .insert({
-                content: item.content,
+                content: itemContent,
                 embedding: embedding,
                 metadata: {
-                    title: item.title,
-                    keywords: item.keywords,
+                    title: itemTitle,
+                    keywords: item.keywords || [],
                     source: "reconnectia_kb.json",
                     item_index: i,
                     ingested_at: new Date().toISOString(),

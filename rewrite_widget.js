@@ -1,12 +1,11 @@
-"use client";
+const fs = require('fs');
 
-import { useState, useEffect } from "react";
-import { ConciergeButton } from "./ConciergeButton";
-import { ConciergePanel } from "./ConciergePanel";
+const widgetPath = 'c:/Users/aviel/RECONNECTIA_DEV/atlas-reconnectia-v1/components/concierge/ConciergeWidget.tsx';
 
-export function ConciergeWidget() {
-    const [isOpen, setIsOpen] = useState(false);
+let widgetContent = fs.readFileSync(widgetPath, 'utf8');
 
+const hookImport = 'import { useState, useEffect } from "react";';
+const hookImplementation = `
     useEffect(() => {
         const handleHashChange = () => {
             if (window.location.hash === '#concierge') {
@@ -19,7 +18,7 @@ export function ConciergeWidget() {
         const handleClick = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
             const link = target.closest('a');
-
+            
             if (link && link.getAttribute('href') === '#concierge') {
                 e.preventDefault();
                 setIsOpen(true);
@@ -28,7 +27,7 @@ export function ConciergeWidget() {
 
         window.addEventListener('hashchange', handleHashChange);
         document.addEventListener('click', handleClick);
-
+        
         // Also check on initial load
         handleHashChange();
 
@@ -37,11 +36,10 @@ export function ConciergeWidget() {
             document.removeEventListener('click', handleClick);
         };
     }, []);
+`;
 
-    return (
-        <>
-            <ConciergeButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-            <ConciergePanel isOpen={isOpen} onClose={() => setIsOpen(false)} />
-        </>
-    );
-}
+widgetContent = widgetContent.replace('import { useState } from "react";', hookImport);
+widgetContent = widgetContent.replace('const [isOpen, setIsOpen] = useState(false);', 'const [isOpen, setIsOpen] = useState(false);\n' + hookImplementation);
+
+fs.writeFileSync(widgetPath, widgetContent);
+console.log('Successfully updated ConciergeWidget.tsx');

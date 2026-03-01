@@ -1,0 +1,190 @@
+﻿
+> atlas-reconnectia-v1@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+node.exe : Error: 
+Cannot apply unknown 
+utility class `shadow-
+[0_0_15px_rgba(255,`
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Error: Can   
+ not a...15px_rgba    
+(255,`:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+    [2m[at 
+onInvalidCandidate (C:
+\Users\aviel\RECONNECT
+IA_DEV\atlas-reconnect
+ia-v1\node_modules\tai
+lwindcss\dist\lib.js:2
+1:1511)][0m
+    [2m[at Te (C:\Use
+rs\aviel\RECONNECTIA_D
+EV\atlas-reconnectia-v
+1\node_modules\tailwin
+dcss\dist\lib.js:16:36
+326)][0m
+    [2m[at C:\Users\a
+viel\RECONNECTIA_DEV\a
+tlas-reconnectia-v1\no
+de_modules\tailwindcss
+\dist\lib.js:21:355][
+0m
+    [2m[at Rr (C:\Use
+rs\aviel\RECONNECTIA_D
+EV\atlas-reconnectia-v
+1\node_modules\tailwin
+dcss\dist\lib.js:3:171
+8)][0m
+    [2m[at _ (C:\User
+s\aviel\RECONNECTIA_DE
+V\atlas-reconnectia-v1
+\node_modules\tailwind
+css\dist\lib.js:3:1377
+)][0m
+    [2m[at $e (C:\Use
+rs\aviel\RECONNECTIA_D
+EV\atlas-reconnectia-v
+1\node_modules\tailwin
+dcss\dist\lib.js:21:17
+2)][0m
+    [2m[at un (C:\Use
+rs\aviel\RECONNECTIA_D
+EV\atlas-reconnectia-v
+1\node_modules\tailwin
+dcss\dist\lib.js:38:29
+4)][0m
+    [2m[at async cn (
+C:\Users\aviel\RECONNE
+CTIA_DEV\atlas-reconne
+ctia-v1\node_modules\t
+ailwindcss\dist\lib.js
+:38:631)][0m
+    [2m[at async Xr (
+C:\Users\aviel\RECONNE
+CTIA_DEV\atlas-reconne
+ctia-v1\node_modules\@
+tailwindcss\node\dist\
+index.js:10:3417)][0m
+    [2m[at async I (C
+:\Users\aviel\RECONNEC
+TIA_DEV\atlas-reconnec
+tia-v1\node_modules\@t
+ailwindcss\postcss\dis
+t\index.js:10:3977)][
+0m
+
+> Build error occurred
+Error: Turbopack 
+build failed with 1 
+errors:
+./app/globals.css
+Error evaluating 
+Node.js code
+CssSyntaxError: 
+tailwindcss: C:\Users\
+aviel\RECONNECTIA_DEV\
+atlas-reconnectia-v1\a
+pp\globals.css:1:1: 
+Cannot apply unknown 
+utility class `shadow-
+[0_0_15px_rgba(255,`
+    at Input.error (no
+de_modules/postcss/lib
+/input.js:135:16) [C:\
+Users\aviel\RECONNECTI
+A_DEV\atlas-reconnecti
+a-v1\.next\build\chunk
+s\node_modules_fe693df
+6._.js:4651:22]
+    at Root.error (nod
+e_modules/postcss/lib/
+node.js:146:32) [C:\Us
+ers\aviel\RECONNECTIA_
+DEV\atlas-reconnectia-
+v1\.next\build\chunks\
+node_modules_fe693df6.
+_.js:928:38]
+    [at Object.Once (C
+:\Users\aviel\RECONNEC
+TIA_DEV\atlas-reconnec
+tia-v1\node_modules\@t
+ailwindcss\postcss\dis
+t\index.js:10:6911)]
+    at async 
+LazyResult.runAsync (n
+ode_modules/postcss/li
+b/lazy-result.js:293:1
+1) [C:\Users\aviel\REC
+ONNECTIA_DEV\atlas-rec
+onnectia-v1\.next\buil
+d\chunks\node_modules_
+fe693df6._.js:6206:21]
+    at async 
+transform (turbopack:/
+//[turbopack-node]/tra
+nsforms/postcss.ts:70:
+34) [C:\Users\aviel\RE
+CONNECTIA_DEV\atlas-re
+connectia-v1\.next\bui
+ld\chunks\[root-of-the
+-server]__51225daf._.j
+s:146:36]
+    at async run (turb
+opack:///[turbopack-no
+de]/ipc/evaluate.ts:92
+:23) [C:\Users\aviel\R
+ECONNECTIA_DEV\atlas-r
+econnectia-v1\.next\bu
+ild\chunks\[root-of-th
+e-server]__974941ed._.
+js:443:31]
+
+Import trace:
+  Client Component 
+Browser:
+    ./app/globals.css 
+[Client Component 
+Browser]
+    ./app/layout.tsx 
+[Server Component]
+
+
+    at async 
+transform (turbopack:/
+//[turbopack-node]/tra
+nsforms/postcss.ts:70:
+34) [C:\Users\aviel\RE
+CONNECTIA_DEV\atlas-re
+connectia-v1\.next\bui
+ld\chunks\[root-of-the
+-server]__51225daf._.j
+s:146:36])
+    at async run (turb
+opack:///[turbopack-no
+de]/ipc/evaluate.ts:92
+:23) [C:\Users\aviel\R
+ECONNECTIA_DEV\atlas-r
+econnectia-v1\.next\bu
+ild\chunks\[root-of-th
+e-server]__974941ed._.
+js:443:31])
